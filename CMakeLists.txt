@@ -2,12 +2,16 @@
 # 3.24.1 is also bundled in CLion as of 2023
 cmake_minimum_required(VERSION 3.24.1)
 
+
 # This tells cmake we have goodies in the /cmake folder
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include (PamplejuceVersion)
 
 # Configures universal binaries and decides which version of macOS to support
 include(PamplejuceMacOS)
+
+# Couple tweaks that IMO should be JUCE defaults
+include(JUCEDefaults)
 
 # Change me!
 # This is the internal name of the project and the name of JUCE's shared code target
@@ -47,7 +51,7 @@ add_subdirectory(lib/clap-juce-extensions EXCLUDE_FROM_ALL)
 # juce_add_module(modules/my_module)
 
 # This adds the melatonin inspector module
-add_subdirectory (modules/melatonin_inspector)
+# add_subdirectory (modules/melatonin_inspector)
 
 # See `docs/CMake API.md` in the JUCE repo for all config options
 juce_add_plugin("${PROJECT_NAME}"
