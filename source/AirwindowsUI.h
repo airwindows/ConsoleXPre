@@ -168,7 +168,7 @@ struct AirwindowsMeter : public juce::Component
     void pushIncrement() {}
     
    void resetArrays(){
-        for (int count = 0; count < dataPoints; ++count) //count through all the points in the array
+        for (unsigned long count = 0; count < dataPoints; ++count) //count through all the points in the array
         {
             dataG[count] = 0.0f;
             dataR[count] = 0.0f;
